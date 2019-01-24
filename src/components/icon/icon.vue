@@ -19,7 +19,7 @@ export default {
       }
     },
     fontSize() {
-      return this.size > 0 ? this.size : 'inherit';
+      return this.size > 0 ? this.size + 'px' : 'inherit';
     }
   }
 }

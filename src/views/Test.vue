@@ -35,6 +35,10 @@
       <yg-icon type="fa-flash" :size="32"></yg-icon>
       <yg-icon type="fa-flask" :size="24"></yg-icon>
       <yg-icon type="fa-phone" :size="16"></yg-icon>
+      <yg-icon type="fa-close" :size="48"></yg-icon>
+      <yg-icon type="fa-download" :size="32"></yg-icon>
+      <yg-icon type="fa-smile-o" :size="24"></yg-icon>
+      <yg-icon type="fa-envelope-o" :size="16"></yg-icon>
     </yg-row>
 
     <yg-row><h2>按钮</h2></yg-row>
