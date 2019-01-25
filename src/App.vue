@@ -7,16 +7,15 @@
 <script>
 import Test from "@/views/Test.vue";
 export default {
-  name: 'App',
+  name: "App",
   data() {
     return {};
   },
   components: {
     Test
   }
-}
+};
 </script>
 
 <style>
-
 </style>

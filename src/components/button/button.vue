@@ -6,12 +6,12 @@
 
 <script>
 export default {
-  name: 'YgButton',
+  name: "YgButton",
   props: {
     nativeType: String,
     type: {
       type: String,
-      default: 'default'
+      default: "default"
     },
     size: String,
     role: String,
@@ -30,11 +30,16 @@ export default {
   },
   computed: {
     buttonClass() {
-      return 'btn' + (this.type ? ' btn-' + this.type : '') + (this.active ? ' active' : '')
-              + (this.block ? ' btn-block' : '') + (this.size ? ' btn-' + this.size : '');
+      return (
+        "btn" +
+        (this.type ? " btn-" + this.type : "") +
+        (this.active ? " active" : "") +
+        (this.block ? " btn-block" : "") +
+        (this.size ? " btn-" + this.size : "")
+      );
     }
   }
-}
+};
 </script>
 
 

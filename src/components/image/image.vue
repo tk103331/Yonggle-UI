@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'YgImage',
+  name: "YgImage",
   props: {
     src: String,
     alt: String,
@@ -17,9 +17,13 @@ export default {
   },
   computed: {
     imgClass() {
-      return 'img' + (this.responsive ? ' img-responsive' : '') + (this.type ? ' img-' + this.type : '');
+      return (
+        "img" +
+        (this.responsive ? " img-responsive" : "") +
+        (this.type ? " img-" + this.type : "")
+      );
     }
   }
-}
+};
 </script>
 

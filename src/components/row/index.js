@@ -1,4 +1,4 @@
-import YgRow from './row.vue';
+import YgRow from "./row.vue";
 
 YgRow.install = function(Vue) {
   Vue.component(YgRow.name, YgRow);

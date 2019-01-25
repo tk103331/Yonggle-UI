@@ -6,22 +6,22 @@
 
 <script>
 export default {
-  name: 'YgContainer',
+  name: "YgContainer",
   props: {
     fluid: {
       type: Boolean,
-      default: false,
+      default: false
     }
   },
   computed: {
     containerClass() {
-      if(this.fluid) {
+      if (this.fluid) {
         return "container-fluid";
       } else {
         return "container";
       }
     }
   }
-}
+};
 </script>
 

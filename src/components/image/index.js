@@ -1,4 +1,4 @@
-import YgImage from './image.vue';
+import YgImage from "./image.vue";
 
 YgImage.install = function(Vue) {
   Vue.component(YgImage.name, YgImage);

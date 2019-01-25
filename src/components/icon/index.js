@@ -1,4 +1,4 @@
-import YgIcon from './icon.vue';
+import YgIcon from "./icon.vue";
 
 YgIcon.install = function(Vue) {
   Vue.component(YgIcon.name, YgIcon);

@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'YgTable',
+  name: "YgTable",
   props: {
     striped: {
       type: Boolean,
@@ -20,17 +20,21 @@ export default {
       type: Boolean,
       default: false
     },
-    data: [],
-
+    data: []
   },
   computed: {
     tableClass() {
-      return 'table ' + (this.striped ? 'table-striped' : '') + (this.bordered ? 'table-bordered' : '') + (this.condensed ? 'table-condensed' : '');
+      return (
+        "table " +
+        (this.striped ? "table-striped" : "") +
+        (this.bordered ? "table-bordered" : "") +
+        (this.condensed ? "table-condensed" : "")
+      );
     }
   },
   render(h) {
-    return h('table')
+    return h("table");
   }
-}
+};
 </script>
 

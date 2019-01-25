@@ -4,7 +4,7 @@
 
 <script>
 export default {
-  name: 'YgIcon',
+  name: "YgIcon",
   props: {
     type: String,
     size: Number
@@ -14,14 +14,14 @@ export default {
   },
   computed: {
     iconClass() {
-      if(this.type) {
-        return this.type.split('-')[0] + ' ' + this.type;
+      if (this.type) {
+        return this.type.split("-")[0] + " " + this.type;
       }
     },
     fontSize() {
-      return this.size > 0 ? this.size + 'px' : 'inherit';
+      return this.size > 0 ? this.size + "px" : "inherit";
     }
   }
-}
+};
 </script>
 
