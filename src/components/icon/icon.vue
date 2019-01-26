@@ -1,5 +1,5 @@
 <template>
-  <i :class="iconClass" :style="{fontSize: fontSize}"></i>
+  <i :class="iconClass" :style="{fontSize: fontSize, verticalAlign: 'middle'}"></i>
 </template>
 
 <script>
