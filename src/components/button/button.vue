@@ -1,5 +1,11 @@
 <template>
-  <button :type="nativeType" :class="buttonClass" :role="role" :disabled="disabled">
+  <button
+    :type="nativeType"
+    :class="buttonClass"
+    :role="role"
+    :disabled="disabled"
+    @click="handleClick"
+  >
     <slot></slot>
   </button>
 </template>
@@ -28,6 +34,9 @@ export default {
       default: false
     }
   },
+  mounted() {
+    console.log(this);
+  },
   computed: {
     buttonClass() {
       return (
@@ -37,6 +46,11 @@ export default {
         (this.block ? " btn-block" : "") +
         (this.size ? " btn-" + this.size : "")
       );
+    }
+  },
+  methods: {
+    handleClick(event) {
+      this.$emit("click", event);
     }
   }
 };
