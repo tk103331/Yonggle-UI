@@ -45,6 +45,7 @@
       <yg-icon type="fa-download" :size="32"></yg-icon>
       <yg-icon type="fa-smile-o" :size="24"></yg-icon>
       <yg-icon type="fa-envelope-o" :size="16"></yg-icon>
+      <yg-icon type="fa-flash" :size="32" :rotate="45"></yg-icon>
     </yg-row>
     <yg-row>
       <h5>Glyphicons</h5>
@@ -58,6 +59,7 @@
       <yg-icon type="glyphicon-map-marker" :size="32"></yg-icon>
       <yg-icon type="glyphicon-tags" :size="24"></yg-icon>
       <yg-icon type="glyphicon-info-sign" :size="16"></yg-icon>
+      <yg-icon type="glyphicon-film" :size="32" :rotate="45"></yg-icon>
     </yg-row>
     <yg-row>
       <h5>Icomoon</h5>
@@ -71,6 +73,7 @@
       <yg-icon type="icon-music" :size="32"></yg-icon>
       <yg-icon type="icon-camera" :size="24"></yg-icon>
       <yg-icon type="icon-mic2" :size="16"></yg-icon>
+      <yg-icon type="icon-quill4" :size="32" :rotate="45"></yg-icon>
     </yg-row>
 
     <yg-row>

@@ -1,5 +1,8 @@
 <template>
-  <i :class="iconClass" :style="{fontSize: fontSize, verticalAlign: 'middle'}"></i>
+  <i
+    :class="iconClass"
+    :style="{fontSize: fontSize, verticalAlign: 'middle', transform: rotateValue}"
+  ></i>
 </template>
 
 <script>
@@ -7,7 +10,8 @@ export default {
   name: "YgIcon",
   props: {
     type: String,
-    size: Number
+    size: Number,
+    rotate: Number
   },
   data() {
     return {};
@@ -20,6 +24,9 @@ export default {
     },
     fontSize() {
       return this.size > 0 ? this.size + "px" : "inherit";
+    },
+    rotateValue() {
+      return "rotate(" + this.rotate + "deg)";
     }
   }
 };
