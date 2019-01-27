@@ -31,6 +31,75 @@
     </yg-row>
 
     <yg-row>
+      <h2>表格</h2>
+    </yg-row>
+    <yg-row>
+      <h5>基本实例</h5>
+    </yg-row>
+    <yg-row>
+      <yg-table :data="tableData" class="show-table">
+        <yg-table-column prop="no" label="#"></yg-table-column>
+        <yg-table-column prop="firstName" label="First Name"></yg-table-column>
+        <yg-table-column prop="lastName" label="Last Name"></yg-table-column>
+        <yg-table-column prop="username" label="Username">
+          <template slot-scope="scope">{{scope.row.userName}}</template>
+        </yg-table-column>
+      </yg-table>
+    </yg-row>
+    <yg-row>
+      <h5>条纹状表格</h5>
+    </yg-row>
+    <yg-row>
+      <yg-table :data="tableData" striped class="show-table">
+        <yg-table-column prop="no" label="#"></yg-table-column>
+        <yg-table-column prop="firstName" label="First Name"></yg-table-column>
+        <yg-table-column prop="lastName" label="Last Name"></yg-table-column>
+        <yg-table-column prop="username" label="Username">
+          <template slot-scope="scope">{{scope.row.userName}}</template>
+        </yg-table-column>
+      </yg-table>
+    </yg-row>
+    <yg-row>
+      <h5>带边框的表格</h5>
+    </yg-row>
+    <yg-row>
+      <yg-table :data="tableData" bordered class="show-table">
+        <yg-table-column prop="no" label="#"></yg-table-column>
+        <yg-table-column prop="firstName" label="First Name"></yg-table-column>
+        <yg-table-column prop="lastName" label="Last Name"></yg-table-column>
+        <yg-table-column prop="username" label="Username">
+          <template slot-scope="scope">{{scope.row.userName}}</template>
+        </yg-table-column>
+      </yg-table>
+    </yg-row>
+    <yg-row>
+      <h5>鼠标悬停</h5>
+    </yg-row>
+    <yg-row>
+      <yg-table :data="tableData" hover class="show-table">
+        <yg-table-column prop="no" label="#"></yg-table-column>
+        <yg-table-column prop="firstName" label="First Name"></yg-table-column>
+        <yg-table-column prop="lastName" label="Last Name"></yg-table-column>
+        <yg-table-column prop="username" label="Username">
+          <template slot-scope="scope">{{scope.row.userName}}</template>
+        </yg-table-column>
+      </yg-table>
+    </yg-row>
+    <yg-row>
+      <h5>紧缩表格</h5>
+    </yg-row>
+    <yg-row>
+      <yg-table :data="tableData" condensed class="show-table">
+        <yg-table-column prop="no" label="#"></yg-table-column>
+        <yg-table-column prop="firstName" label="First Name"></yg-table-column>
+        <yg-table-column prop="lastName" label="Last Name"></yg-table-column>
+        <yg-table-column prop="username" label="Username">
+          <template slot-scope="scope">{{scope.row.userName}}</template>
+        </yg-table-column>
+      </yg-table>
+    </yg-row>
+
+    <yg-row>
       <h2>图标</h2>
     </yg-row>
     <yg-row>
@@ -179,6 +248,7 @@ import YgContainer from "@/components/container";
 import YgRow from "@/components/row";
 import YgCol from "@/components/col";
 import YgTable from "@/components/table";
+import YgTableColumn from "@/components/table-column";
 import YgButton from "@/components/button";
 import YgImage from "@/components/image";
 import YgIcon from "@/components/icon";
@@ -188,7 +258,12 @@ export default {
   data() {
     return {
       img1:
-        "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNjg2OWY2MGE4NyB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE2ODY5ZjYwYTg3Ij48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjA1NDY4NzUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4="
+        "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzE0MHgxNDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNjg2OWY2MGE4NyB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE2ODY5ZjYwYTg3Ij48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjA1NDY4NzUiIHk9Ijc0LjUiPjE0MHgxNDA8L3RleHQ+PC9nPjwvZz48L3N2Zz4=",
+      tableData: [
+        { no: 1, firstName: "Mark", lastName: "Otto", username: "mdo" },
+        { no: 1, firstName: "Jacob", lastName: "Thornton", username: "fat" },
+        { no: 1, firstName: "Larry", lastName: "the Bird", username: "twitter" }
+      ]
     };
   },
   components: {
@@ -196,6 +271,7 @@ export default {
     YgRow,
     YgCol,
     YgTable,
+    YgTableColumn,
     YgButton,
     YgImage,
     YgIcon,
@@ -219,6 +295,9 @@ export default {
 .row.show-image > img {
   width: 140px;
   height: 140px;
+}
+.show-table {
+  width: 500px;
 }
 </style>
 

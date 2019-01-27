@@ -1,10 +1,5 @@
-<template>
-  <table :class="tableClass">
-    <slot></slot>
-  </table>
-</template>
-
 <script>
+import YgTableColumn from "./table-column";
 export default {
   name: "YgTable",
   props: {
@@ -20,20 +15,78 @@ export default {
       type: Boolean,
       default: false
     },
-    data: []
-  },
-  computed: {
-    tableClass() {
-      return (
-        "table " +
-        (this.striped ? "table-striped" : "") +
-        (this.bordered ? "table-bordered" : "") +
-        (this.condensed ? "table-condensed" : "")
-      );
+    hover: {
+      type: Boolean,
+      default: false
+    },
+    data: {
+      type: Array,
+      default() {
+        return [];
+      }
     }
   },
   render(h) {
-    return h("table");
+    let cols = this.getCols();
+    console.log(cols);
+    return h(
+      "table",
+      {
+        class: {
+          table: true,
+          "table-striped": this.striped,
+          "table-bordered": this.bordered,
+          "table-condensed": this.condensed,
+          "table-hover": this.hover
+        }
+      },
+      [
+        h("thead", {}, [
+          h(
+            "tr",
+            {},
+            cols.map(col => {
+              return h("th", {}, [col.label]);
+            })
+          )
+        ]),
+        h(
+          "tbody",
+          {},
+          this.data.map(row => {
+            return h(
+              "tr",
+              {
+                class: {}
+              },
+              cols.map(col => {
+                return h("td", {}, [row[col.prop]]);
+              })
+            );
+          })
+        )
+      ]
+    );
+  },
+  methods: {
+    getCols() {
+      let cols = [];
+      if (this.$slots.default) {
+        this.$slots.default.forEach(node => {
+          let opts = node.componentOptions;
+          if (opts && opts.tag == "yg-table-column") {
+            cols.push({
+              prop: opts.propsData.prop,
+              label: opts.propsData.label
+            });
+          }
+        });
+      }
+      return cols;
+    }
+  },
+  components: {
+    YgTableColumn
   }
 };
 </script>
