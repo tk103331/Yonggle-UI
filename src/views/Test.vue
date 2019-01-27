@@ -100,6 +100,50 @@
     </yg-row>
 
     <yg-row>
+      <h2>表单</h2>
+    </yg-row>
+    <yg-row>
+      <h5>基本实例</h5>
+    </yg-row>
+    <yg-row>
+      <yg-form class="show-form">
+        <yg-form-group label="Email address">
+          <yg-input native-type="email" placeholder="Email"></yg-input>
+        </yg-form-group>
+        <yg-form-group label="Password">
+          <yg-input native-type="password" placeholder="Password"></yg-input>
+        </yg-form-group>
+        <yg-button type="primary">Submit</yg-button>
+      </yg-form>
+    </yg-row>
+    <yg-row>
+      <h5>内联表单</h5>
+    </yg-row>
+    <yg-row>
+      <yg-form type="inline">
+        <yg-form-group label="Email address">
+          <yg-input native-type="email" placeholder="Email"></yg-input>
+        </yg-form-group>
+        <yg-form-group label="Password">
+          <yg-input native-type="password" placeholder="Password"></yg-input>
+        </yg-form-group>
+      </yg-form>
+    </yg-row>
+    <yg-row>
+      <h5>水平排列的表单</h5>
+    </yg-row>
+    <yg-row>
+      <yg-form type="horizontal">
+        <yg-form-group label="Email address" label-width="md-2" input-width="md-6">
+          <yg-input native-type="email" placeholder="Email"></yg-input>
+        </yg-form-group>
+        <yg-form-group label="Password" label-width="md-2" input-width="md-6">
+          <yg-input native-type="password" placeholder="Password"></yg-input>
+        </yg-form-group>
+      </yg-form>
+    </yg-row>
+
+    <yg-row>
       <h2>图标</h2>
     </yg-row>
     <yg-row>
@@ -249,10 +293,13 @@ import YgRow from "@/components/row";
 import YgCol from "@/components/col";
 import YgTable from "@/components/table";
 import YgTableColumn from "@/components/table-column";
+import YgForm from "@/components/form";
+import YgFormGroup from "@/components/form-group";
 import YgButton from "@/components/button";
 import YgImage from "@/components/image";
 import YgIcon from "@/components/icon";
 import YgText from "@/components/text";
+import YgInput from "@/components/input";
 
 export default {
   data() {
@@ -272,10 +319,13 @@ export default {
     YgCol,
     YgTable,
     YgTableColumn,
+    YgForm,
+    YgFormGroup,
     YgButton,
     YgImage,
     YgIcon,
-    YgText
+    YgText,
+    YgInput
   }
 };
 </script>
@@ -297,7 +347,10 @@ export default {
   height: 140px;
 }
 .show-table {
-  width: 500px;
+  width: 600px;
+}
+.show-form {
+  width: 600px;
 }
 </style>
 
