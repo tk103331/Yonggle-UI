@@ -34,9 +34,6 @@ export default {
       default: false
     }
   },
-  mounted() {
-    console.log(this);
-  },
   computed: {
     buttonClass() {
       return (

@@ -137,6 +137,40 @@
       <yg-image src="/static/img/img1.svg" title="img-circle" type="circle"></yg-image>
       <yg-image src="/static/img/img1.svg" title="img-thumbnail" type="thumbnail"></yg-image>
     </yg-row>
+
+    <yg-row>
+      <h2>文本</h2>
+    </yg-row>
+    <yg-row>
+      <h5>前景色</h5>
+    </yg-row>
+    <yg-row>
+      <yg-text type="span" color="primary">primary</yg-text>
+      <yg-text type="span" color="success">success</yg-text>
+      <yg-text type="span" color="info">info</yg-text>
+      <yg-text type="span" color="warning">warning</yg-text>
+      <yg-text type="span" color="danger">danger</yg-text>
+
+      <yg-text type="span" color="yellow">yellow</yg-text>
+      <yg-text type="span" color="blue">blue</yg-text>
+      <yg-text type="span" color="#ff00ff">#ff00ff</yg-text>
+      <yg-text type="span" color="#c26464">#c26464</yg-text>
+    </yg-row>
+    <yg-row>
+      <h5>背景色</h5>
+    </yg-row>
+    <yg-row>
+      <yg-text type="span" bg-color="primary">primary</yg-text>
+      <yg-text type="span" bg-color="success">success</yg-text>
+      <yg-text type="span" bg-color="info">info</yg-text>
+      <yg-text type="span" bg-color="warning">warning</yg-text>
+      <yg-text type="span" bg-color="danger">danger</yg-text>
+
+      <yg-text type="span" bg-color="yellow">yellow</yg-text>
+      <yg-text type="span" bg-color="blue">blue</yg-text>
+      <yg-text type="span" bg-color="#ff00ff">#ff00ff</yg-text>
+      <yg-text type="span" bg-color="#c26464">#c26464</yg-text>
+    </yg-row>
   </yg-container>
 </template>
 
@@ -148,6 +182,7 @@ import YgTable from "@/components/table";
 import YgButton from "@/components/button";
 import YgImage from "@/components/image";
 import YgIcon from "@/components/icon";
+import YgText from "@/components/text";
 
 export default {
   data() {
@@ -163,7 +198,8 @@ export default {
     YgTable,
     YgButton,
     YgImage,
-    YgIcon
+    YgIcon,
+    YgText
   }
 };
 </script>
