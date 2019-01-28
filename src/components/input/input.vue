@@ -1,5 +1,12 @@
 <template>
-  <input class="form-control" :placeholder="placeholder" :type="nativeType">
+  <input
+    class="form-control"
+    :placeholder="placeholder"
+    :type="nativeType"
+    :focus="focus"
+    :disabled="disabled"
+    :readonly="readonly"
+  >
 </template>
 
 <script>
@@ -8,7 +15,19 @@ export default {
   props: {
     type: String,
     placeholder: String,
-    nativeType: String
+    nativeType: String,
+    focus: {
+      type: Boolean,
+      default: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    readonly: {
+      type: Boolean,
+      default: false
+    }
   }
 };
 </script>

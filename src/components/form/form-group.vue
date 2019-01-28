@@ -1,9 +1,11 @@
 <template>
   <div class="form-group">
     <label :class="labelClass">{{label}}</label>
-    <div :class="inputClass">
+    <div v-if="controlClass != ''" :class="controlClass">
       <slot></slot>
     </div>
+    <slot v-else></slot>
+    <span v-if="helpText != ''" class="help-block">{{helpText}}</span>
   </div>
 </template>
 <script>
@@ -16,9 +18,10 @@ export default {
     labelWidth: {
       type: String
     },
-    inputWidth: {
+    controlWidth: {
       type: String
-    }
+    },
+    helpText: String
   },
   computed: {
     labelClass() {
@@ -28,12 +31,13 @@ export default {
         }
       }
     },
-    inputClass() {
-      if (this.inputWidth) {
-        if (this.inputWidth.indexOf("-") > -1) {
-          return "col-" + this.inputWidth;
+    controlClass() {
+      if (this.controlWidth) {
+        if (this.controlWidth.indexOf("-") > -1) {
+          return "col-" + this.controlWidth;
         }
       }
+      return "";
     }
   }
 };

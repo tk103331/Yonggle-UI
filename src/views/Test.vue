@@ -120,7 +120,7 @@
       <h5>内联表单</h5>
     </yg-row>
     <yg-row>
-      <yg-form type="inline">
+      <yg-form type="inline" class="show-form">
         <yg-form-group label="Email address">
           <yg-input native-type="email" placeholder="Email"></yg-input>
         </yg-form-group>
@@ -133,14 +133,51 @@
       <h5>水平排列的表单</h5>
     </yg-row>
     <yg-row>
-      <yg-form type="horizontal">
-        <yg-form-group label="Email address" label-width="md-2" input-width="md-6">
+      <yg-form type="horizontal" class="show-form">
+        <yg-form-group label="Email address" label-width="md-2" control-width="md-6">
           <yg-input native-type="email" placeholder="Email"></yg-input>
         </yg-form-group>
-        <yg-form-group label="Password" label-width="md-2" input-width="md-6">
+        <yg-form-group label="Password" label-width="md-2" control-width="md-6">
           <yg-input native-type="password" placeholder="Password"></yg-input>
         </yg-form-group>
       </yg-form>
+    </yg-row>
+    <yg-row>
+      <h5>静态控件</h5>
+    </yg-row>
+    <yg-row>
+      <yg-form type="horizontal" class="show-form">
+        <yg-form-group label="Email" label-width="md-2" control-width="md-6">
+          <yg-static text="email@example.com"></yg-static>
+        </yg-form-group>
+        <yg-form-group label="Password" label-width="md-2" control-width="md-6">
+          <yg-input native-type="password" placeholder="Password"></yg-input>
+        </yg-form-group>
+      </yg-form>
+    </yg-row>
+    <yg-row>
+      <h5>焦点状态</h5>
+    </yg-row>
+    <yg-row>
+      <yg-col>
+        <yg-input focus value="Demonstrative focus state"></yg-input>
+      </yg-col>
+    </yg-row>
+    <yg-row>
+      <h5>禁用状态</h5>
+    </yg-row>
+    <yg-row>
+      <yg-col>
+        <yg-input disabled value="Disabled input here..."></yg-input>
+      </yg-col>
+    </yg-row>
+    <yg-row>
+      <h5>只读状态</h5>
+    </yg-row>
+    <yg-row>
+      <yg-col>
+        <yg-input readonly value="Readonly input here…"></yg-input>
+      </yg-col>
     </yg-row>
 
     <yg-row>
@@ -300,6 +337,7 @@ import YgImage from "@/components/image";
 import YgIcon from "@/components/icon";
 import YgText from "@/components/text";
 import YgInput from "@/components/input";
+import YgStatic from "@/components/static";
 
 export default {
   data() {
@@ -325,7 +363,8 @@ export default {
     YgImage,
     YgIcon,
     YgText,
-    YgInput
+    YgInput,
+    YgStatic
   }
 };
 </script>
