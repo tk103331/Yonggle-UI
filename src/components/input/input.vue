@@ -6,6 +6,8 @@
     :focus="focus"
     :disabled="disabled"
     :readonly="readonly"
+    @input="handleInput"
+    @change="handleChange"
   >
 </template>
 
@@ -13,6 +15,7 @@
 export default {
   name: "YgInput",
   props: {
+    value: String,
     type: String,
     placeholder: String,
     nativeType: String,
@@ -27,6 +30,14 @@ export default {
     readonly: {
       type: Boolean,
       default: false
+    }
+  },
+  methods: {
+    handleInput(val) {
+      this.$emit("input", val);
+    },
+    handleChange(val) {
+      this.$emit("change", cal);
     }
   }
 };
