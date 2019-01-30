@@ -155,6 +155,7 @@
         </yg-form-group>
       </yg-form>
     </yg-row>
+
     <yg-row>
       <h5>焦点状态</h5>
     </yg-row>
@@ -178,6 +179,34 @@
       <yg-col>
         <yg-input readonly value="Readonly input here…"></yg-input>
       </yg-col>
+    </yg-row>
+    <yg-row>
+      <h5>双向绑定及事件</h5>
+    </yg-row>
+    <yg-row>
+      <yg-col>
+        <yg-input
+          focus
+          v-model="inputValue"
+          @input="inputEvents.push('input')"
+          @change="inputEvents.push('change')"
+          @focus="inputEvents.push('focus')"
+          @blur="inputEvents.push('blur')"
+        ></yg-input>
+        <yg-row>value:{{inputValue}}</yg-row>
+        <yg-row>events:{{inputEvents}}</yg-row>
+      </yg-col>
+    </yg-row>
+    <yg-row>
+      <div class="checkbox">
+        <label>
+          <div class="checker">
+            <span class="checked">
+              <input type="checkbox" class="styled" checked="checked">
+            </span>
+          </div>Checked styled
+        </label>
+      </div>
     </yg-row>
 
     <yg-row>
@@ -348,7 +377,9 @@ export default {
         { no: 1, firstName: "Mark", lastName: "Otto", username: "mdo" },
         { no: 1, firstName: "Jacob", lastName: "Thornton", username: "fat" },
         { no: 1, firstName: "Larry", lastName: "the Bird", username: "twitter" }
-      ]
+      ],
+      inputValue: "",
+      inputEvents: []
     };
   },
   components: {

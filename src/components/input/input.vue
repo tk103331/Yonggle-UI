@@ -6,8 +6,11 @@
     :focus="focus"
     :disabled="disabled"
     :readonly="readonly"
+    @focus="handleFocus"
+    @blur="handleBlur"
     @input="handleInput"
     @change="handleChange"
+    :value="innerValue"
   >
 </template>
 
@@ -32,12 +35,25 @@ export default {
       default: false
     }
   },
+  data() {
+    return {
+      innerValue:
+        this.value == undefined || this.value == null ? "" : this.value
+    };
+  },
   methods: {
-    handleInput(val) {
-      this.$emit("input", val);
+    handleFocus(e) {
+      this.$emit("focus");
     },
-    handleChange(val) {
-      this.$emit("change", cal);
+    handleBlur(e) {
+      this.$emit("blur");
+    },
+    handleInput(e) {
+      this.innerValue = e.target.value;
+      this.$emit("input", e.target.value);
+    },
+    handleChange(e) {
+      this.$emit("change", e.target.value);
     }
   }
 };
