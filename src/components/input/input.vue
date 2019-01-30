@@ -1,6 +1,7 @@
 <template>
   <input
     class="form-control"
+    :style="inputStyle"
     :placeholder="placeholder"
     :type="nativeType"
     :focus="focus"
@@ -18,14 +19,10 @@
 export default {
   name: "YgInput",
   props: {
-    value: String,
+    value: [String, Number],
     type: String,
     placeholder: String,
     nativeType: String,
-    focus: {
-      type: Boolean,
-      default: false
-    },
     disabled: {
       type: Boolean,
       default: false
@@ -38,14 +35,26 @@ export default {
   data() {
     return {
       innerValue:
-        this.value == undefined || this.value == null ? "" : this.value
+        this.value == undefined || this.value == null ? "" : this.value,
+      focused: false
     };
+  },
+  computed: {
+    inputStyle() {
+      if (this.focused) {
+        return { borderColor: "black" };
+      } else {
+        return {};
+      }
+    }
   },
   methods: {
     handleFocus(e) {
+      this.focused = true;
       this.$emit("focus");
     },
     handleBlur(e) {
+      this.focused = false;
       this.$emit("blur");
     },
     handleInput(e) {
