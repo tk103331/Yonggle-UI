@@ -4,7 +4,6 @@
     :style="inputStyle"
     :placeholder="placeholder"
     :type="nativeType"
-    :focus="focus"
     :disabled="disabled"
     :readonly="readonly"
     @focus="handleFocus"

@@ -28,7 +28,6 @@ export default {
   },
   render(h) {
     let cols = this.getCols();
-    console.log(cols);
     return h(
       "table",
       {

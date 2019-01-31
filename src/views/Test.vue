@@ -198,15 +198,19 @@
       </yg-col>
     </yg-row>
     <yg-row>
-      <div class="checkbox">
-        <label>
-          <div class="checker">
-            <span class="checked">
-              <input type="checkbox" class="styled" checked="checked">
-            </span>
-          </div>Checked styled
-        </label>
-      </div>
+      <h5>复选框</h5>
+    </yg-row>
+    <yg-row>
+      <yg-form-group>
+        <yg-checkbox v-model="checkboxValue" :styled="false">fffff</yg-checkbox>
+      </yg-form-group>
+      value:{{checkboxValue}}
+    </yg-row>
+    <yg-row>
+      <yg-form-group>
+        <yg-checkbox v-model="checkboxValue">fffff</yg-checkbox>
+      </yg-form-group>
+      value:{{checkboxValue}}
     </yg-row>
 
     <yg-row>
@@ -367,6 +371,7 @@ import YgIcon from "@/components/icon";
 import YgText from "@/components/text";
 import YgInput from "@/components/input";
 import YgStatic from "@/components/static";
+import YgCheckbox from "@/components/checkbox";
 
 export default {
   data() {
@@ -379,7 +384,8 @@ export default {
         { no: 1, firstName: "Larry", lastName: "the Bird", username: "twitter" }
       ],
       inputValue: "",
-      inputEvents: []
+      inputEvents: [],
+      checkboxValue: false
     };
   },
   components: {
@@ -395,7 +401,8 @@ export default {
     YgIcon,
     YgText,
     YgInput,
-    YgStatic
+    YgStatic,
+    YgCheckbox
   }
 };
 </script>
