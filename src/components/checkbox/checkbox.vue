@@ -5,7 +5,13 @@
         <input type="checkbox" class="styled" v-model="innerValue" :disabled="disabled">
       </span>
     </div>
-    <input v-if="!styled" type="checkbox" v-model="innerValue" :disabled="disabled">
+    <input
+      v-if="!styled"
+      type="checkbox"
+      v-model="innerValue"
+      :disabled="disabled"
+      style="height:18px;width:18px;vertical-align:middle;margin:0px;"
+    >
     <slot></slot>
   </div>
 </template>
