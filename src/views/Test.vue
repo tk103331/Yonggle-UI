@@ -202,15 +202,20 @@
     </yg-row>
     <yg-row>
       <yg-form-group>
-        <yg-checkbox v-model="checkboxValue" :styled="false">fffff</yg-checkbox>
+        <yg-checkbox v-model="checkboxValue" :styled="false">native checkbox</yg-checkbox>
       </yg-form-group>
       value:{{checkboxValue}}
     </yg-row>
     <yg-row>
       <yg-form-group>
-        <yg-checkbox v-model="checkboxValue">fffff</yg-checkbox>
+        <yg-checkbox v-model="checkboxValue">styled checkbox</yg-checkbox>
       </yg-form-group>
       value:{{checkboxValue}}
+    </yg-row>
+    <yg-row>
+      <yg-form-group>
+        <yg-checkbox :value="true" disabled>disabled checkbox</yg-checkbox>
+      </yg-form-group>
     </yg-row>
 
     <yg-row>

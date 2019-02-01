@@ -1,11 +1,11 @@
 <template>
-  <div @click="handleClick" class="yg-checkbox">
-    <div v-if="styled" class="checker">
+  <div @click="handleClick" :class="{'yg-checkbox':true,'disabled':disabled}">
+    <div v-if="styled" :class="{'checker':true,'disabled':disabled}">
       <span :class="{checked:innerValue}">
-        <input type="checkbox" class="styled" v-model="innerValue">
+        <input type="checkbox" class="styled" v-model="innerValue" :disabled="disabled">
       </span>
     </div>
-    <input v-if="!styled" type="checkbox" v-model="innerValue">
+    <input v-if="!styled" type="checkbox" v-model="innerValue" :disabled="disabled">
     <slot></slot>
   </div>
 </template>
@@ -21,6 +21,15 @@ export default {
     styled: {
       type: Boolean,
       default: true
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    }
+  },
+  created() {
+    if (!this.disabled) {
+      this.$watch("value", val => (this.innerValue = val));
     }
   },
   mounted() {
@@ -31,16 +40,22 @@ export default {
       innerValue: false
     };
   },
-  methods: {
-    handleClick() {
-      this.innerValue = !this.innerValue;
-      this.$emit("input", this.innerValue);
-      this.$emit("change", this.innerValue);
+  computed: {
+    checkboxClass() {
+      let cls = ["yg-checkbox"];
+      if (this.disabled) {
+        cls.push("disabled");
+      }
+      return cls;
     }
   },
-  watch: {
-    value(val) {
-      this.innerValue = val;
+  methods: {
+    handleClick() {
+      if (!this.disabled) {
+        this.innerValue = !this.innerValue;
+        this.$emit("input", this.innerValue);
+        this.$emit("change", this.innerValue);
+      }
     }
   }
 };
@@ -50,6 +65,9 @@ export default {
 .yg-checkbox {
   cursor: pointer;
   display: inline-block;
+}
+.disabled {
+  cursor: not-allowed;
 }
 </style>
 
