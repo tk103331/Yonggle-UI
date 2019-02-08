@@ -1,12 +1,19 @@
 <template>
   <div @click="handleClick" :class="{'yg-checkbox':true,'disabled':disabled}">
-    <div v-if="styled" :class="{'checker':true,'disabled':disabled}">
+    <div v-if="!native" :class="{'checker':true,'disabled':disabled}">
       <span :class="{checked:innerValue}">
-        <input type="checkbox" class="styled" v-model="innerValue" :disabled="disabled">
+        <input
+          :name="name"
+          type="checkbox"
+          class="styled"
+          v-model="innerValue"
+          :disabled="disabled"
+        >
       </span>
     </div>
     <input
-      v-if="!styled"
+      v-if="native"
+      :name="name"
       type="checkbox"
       v-model="innerValue"
       :disabled="disabled"
@@ -20,13 +27,22 @@
 export default {
   name: "YgCheckbox",
   props: {
+    name: String,
     value: {
-      type: Boolean,
+      type: [String, Number, Boolean],
       default: false
     },
-    styled: {
-      type: Boolean,
+    trueValue: {
+      type: [String, Number, Boolean],
       default: true
+    },
+    falseValue: {
+      type: [String, Number, Boolean],
+      default: false
+    },
+    native: {
+      type: Boolean,
+      default: false
     },
     disabled: {
       type: Boolean,
@@ -35,11 +51,11 @@ export default {
   },
   created() {
     if (!this.disabled) {
-      this.$watch("value", val => (this.innerValue = val));
+      this.$watch("value", val => this.setInnerValue(val));
     }
   },
   mounted() {
-    this.innerValue = this.value;
+    this.setInnerValue(this.value);
   },
   data() {
     return {
@@ -56,11 +72,21 @@ export default {
     }
   },
   methods: {
+    setInnerValue(val) {
+      if (val == this.trueValue) {
+        this.innerValue = true;
+      } else if (val == this.falseValue) {
+        this.innerValue = false;
+      }
+    },
     handleClick() {
       if (!this.disabled) {
         this.innerValue = !this.innerValue;
-        this.$emit("input", this.innerValue);
-        this.$emit("change", this.innerValue);
+
+        let value = this.innerValue ? this.trueValue : this.falseValue;
+
+        this.$emit("input", value);
+        this.$emit("change", value);
       }
     }
   }

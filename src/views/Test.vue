@@ -202,19 +202,29 @@
     </yg-row>
     <yg-row>
       <yg-form-group>
-        <yg-checkbox v-model="checkboxValue" :styled="false">native checkbox</yg-checkbox>
+        <yg-checkbox v-model="checkboxValue" native>native checkbox</yg-checkbox>
       </yg-form-group>
       value:{{checkboxValue}}
     </yg-row>
     <yg-row>
       <yg-form-group>
-        <yg-checkbox v-model="checkboxValue">styled checkbox</yg-checkbox>
+        <yg-checkbox v-model="checkboxValue" true-value="1" false-value="0">styled checkbox</yg-checkbox>
       </yg-form-group>
       value:{{checkboxValue}}
     </yg-row>
     <yg-row>
       <yg-form-group>
         <yg-checkbox :value="true" disabled>disabled checkbox</yg-checkbox>
+      </yg-form-group>
+    </yg-row>
+    <yg-row>
+      <yg-form-group>
+        <yg-checkbox-group v-model="checkboxGroupValue">
+          <yg-checkbox value="apple">苹果</yg-checkbox>
+          <yg-checkbox value="orange">橘子</yg-checkbox>
+          <yg-checkbox value="banana">香蕉</yg-checkbox>
+        </yg-checkbox-group>
+        value:{{checkboxGroupValue}}
       </yg-form-group>
     </yg-row>
 
@@ -377,6 +387,7 @@ import YgText from "@/components/text";
 import YgInput from "@/components/input";
 import YgStatic from "@/components/static";
 import YgCheckbox from "@/components/checkbox";
+import YgCheckboxGroup from "@/components/checkbox-group";
 
 export default {
   data() {
@@ -390,7 +401,8 @@ export default {
       ],
       inputValue: "",
       inputEvents: [],
-      checkboxValue: false
+      checkboxValue: false,
+      checkboxGroupValue: []
     };
   },
   components: {
@@ -407,7 +419,8 @@ export default {
     YgText,
     YgInput,
     YgStatic,
-    YgCheckbox
+    YgCheckbox,
+    YgCheckboxGroup
   }
 };
 </script>
