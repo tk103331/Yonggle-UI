@@ -1,25 +1,27 @@
 <template>
-  <div @click="handleClick" :class="{'yg-checkbox':true,'disabled':disabled}">
-    <div v-if="!native" :class="{'checker':true,'disabled':disabled}">
-      <span :class="{checked:innerValue}">
-        <input
-          :name="name"
-          type="checkbox"
-          class="styled"
-          v-model="innerValue"
-          :disabled="disabled"
-        >
-      </span>
-    </div>
-    <input
-      v-if="native"
-      :name="name"
-      type="checkbox"
-      v-model="innerValue"
-      :disabled="disabled"
-      style="height:18px;width:18px;vertical-align:middle;margin:0px;"
-    >
-    <slot></slot>
+  <div @click="handleClick" :class="{'checkbox':true,'yg-checkbox':true,'disabled':disabled}">
+    <label>
+      <div v-if="!native" :class="{'checker':true,'disabled':disabled}">
+        <span :class="{checked:innerValue}">
+          <input
+            :name="name"
+            type="checkbox"
+            class="styled"
+            v-model="innerValue"
+            :disabled="disabled"
+          >
+        </span>
+      </div>
+      <input
+        v-if="native"
+        :name="name"
+        type="checkbox"
+        v-model="innerValue"
+        :disabled="disabled"
+        style="height:18px;width:18px;vertical-align:middle;margin:0px;"
+      >
+      <slot></slot>
+    </label>
   </div>
 </template>
 
