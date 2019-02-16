@@ -208,7 +208,7 @@
     </yg-row>
     <yg-row>
       <yg-form-group>
-        <yg-checkbox v-model="checkboxValue" true-value="1" false-value="0">styled checkbox</yg-checkbox>
+        <yg-checkbox v-model="checkboxValue" true-label="1" false-label="0">styled checkbox</yg-checkbox>
       </yg-form-group>
       value:{{checkboxValue}}
     </yg-row>
@@ -225,6 +225,36 @@
           <yg-checkbox value="banana">香蕉</yg-checkbox>
         </yg-checkbox-group>
         value:{{checkboxGroupValue}}
+      </yg-form-group>
+    </yg-row>
+    <yg-row>
+      <h5>单选框</h5>
+    </yg-row>
+    <yg-row>
+      <yg-form-group>
+        <yg-radio v-model="radioValue" native>native radio</yg-radio>
+      </yg-form-group>
+      value:{{radioValue}}
+    </yg-row>
+    <yg-row>
+      <yg-form-group>
+        <yg-radio v-model="radioValue" label="1">styled radio</yg-radio>
+      </yg-form-group>
+      value:{{radioValue}}
+    </yg-row>
+    <yg-row>
+      <yg-form-group>
+        <yg-radio :value="true" disabled>disabled radio</yg-radio>
+      </yg-form-group>
+    </yg-row>
+    <yg-row>
+      <yg-form-group>
+        <yg-radio-group v-model="radioGroupValue">
+          <yg-radio label="苹果">苹果</yg-radio>
+          <yg-radio label="橘子">橘子</yg-radio>
+          <yg-radio label="香蕉">香蕉</yg-radio>
+        </yg-radio-group>
+        value:{{radioGroupValue}}
       </yg-form-group>
     </yg-row>
 
@@ -388,6 +418,8 @@ import YgInput from "@/components/input";
 import YgStatic from "@/components/static";
 import YgCheckbox from "@/components/checkbox";
 import YgCheckboxGroup from "@/components/checkbox-group";
+import YgRadio from "@/components/radio";
+import YgRadioGroup from "@/components/radio-group";
 
 export default {
   data() {
@@ -402,7 +434,9 @@ export default {
       inputValue: "",
       inputEvents: [],
       checkboxValue: false,
-      checkboxGroupValue: []
+      checkboxGroupValue: [],
+      radioValue: false,
+      radioGroupValue: "苹果"
     };
   },
   components: {
@@ -420,7 +454,9 @@ export default {
     YgInput,
     YgStatic,
     YgCheckbox,
-    YgCheckboxGroup
+    YgCheckboxGroup,
+    YgRadio,
+    YgRadioGroup
   }
 };
 </script>

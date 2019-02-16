@@ -38,10 +38,13 @@ export default {
             if (val) {
               if (!arrays.contains(this.innerValue, ins.value)) {
                 this.innerValue.push(ins.value);
+                this.$emit("change", this.innerValue);
               }
             } else {
               arrays.remove(this.innerValue, ins.value);
+              this.$emit("change", this.innerValue);
             }
+            this.$emit("input", this.innerValue);
           });
         });
     }

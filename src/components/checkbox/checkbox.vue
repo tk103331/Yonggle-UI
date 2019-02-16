@@ -1,5 +1,5 @@
 <template>
-  <div @click="handleClick" :class="{'checkbox':true,'yg-checkbox':true,'disabled':disabled}">
+  <div :class="{'checkbox':true,'yg-checkbox':true,'disabled':disabled}">
     <label>
       <div v-if="!native" :class="{'checker':true,'disabled':disabled}">
         <span :class="{checked:innerValue}">
@@ -9,6 +9,7 @@
             class="styled"
             v-model="innerValue"
             :disabled="disabled"
+            @change="handleChange"
           >
         </span>
       </div>
@@ -18,6 +19,7 @@
         type="checkbox"
         v-model="innerValue"
         :disabled="disabled"
+        @change="handleChange"
         style="height:18px;width:18px;vertical-align:middle;margin:0px;"
       >
       <slot></slot>
@@ -34,11 +36,11 @@ export default {
       type: [String, Number, Boolean],
       default: false
     },
-    trueValue: {
+    trueLabel: {
       type: [String, Number, Boolean],
       default: true
     },
-    falseValue: {
+    falseLabel: {
       type: [String, Number, Boolean],
       default: false
     },
@@ -75,17 +77,15 @@ export default {
   },
   methods: {
     setInnerValue(val) {
-      if (val == this.trueValue) {
+      if (val == this.trueLabel) {
         this.innerValue = true;
-      } else if (val == this.falseValue) {
+      } else if (val == this.falseLabel) {
         this.innerValue = false;
       }
     },
-    handleClick() {
+    handleChange(e) {
       if (!this.disabled) {
-        this.innerValue = !this.innerValue;
-
-        let value = this.innerValue ? this.trueValue : this.falseValue;
+        let value = this.innerValue ? this.trueLabel : this.falseLabel;
 
         this.$emit("input", value);
         this.$emit("change", value);
