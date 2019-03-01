@@ -155,6 +155,21 @@
         </yg-form-group>
       </yg-form>
     </yg-row>
+    <yg-row>
+      <h5>帮助</h5>
+    </yg-row>
+    <yg-row>
+      <yg-form type="horizontal" class="show-form">
+        <yg-form-group label="Email" label-width="md-2" control-width="md-6">
+          <yg-input native-type="email" placeholder="Email"></yg-input>
+          <yg-input-help position="right">格式：a@a.com</yg-input-help>
+        </yg-form-group>
+        <yg-form-group label="Password" label-width="md-2" control-width="md-6" help-inline>
+          <yg-input native-type="password" placeholder="Password"></yg-input>
+          <span slot="help" class="label label-block label-primary text-left">包含数据、字母、符号</span>
+        </yg-form-group>
+      </yg-form>
+    </yg-row>
 
     <yg-row>
       <h5>焦点状态</h5>
@@ -415,6 +430,7 @@ import YgImage from "@/components/image";
 import YgIcon from "@/components/icon";
 import YgText from "@/components/text";
 import YgInput from "@/components/input";
+import YgInputHelp from "@/components/input-help";
 import YgStatic from "@/components/static";
 import YgCheckbox from "@/components/checkbox";
 import YgCheckboxGroup from "@/components/checkbox-group";
@@ -452,6 +468,7 @@ export default {
     YgIcon,
     YgText,
     YgInput,
+    YgInputHelp,
     YgStatic,
     YgCheckbox,
     YgCheckboxGroup,

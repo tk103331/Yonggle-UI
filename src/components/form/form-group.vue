@@ -3,21 +3,29 @@
     <label :class="labelClass">{{label}}</label>
     <div v-if="controlClass != ''" :class="controlClass">
       <slot></slot>
+      <yg-input-help v-if="$slots.help && helpInline" inline>
+        <slot name="help"></slot>
+      </yg-input-help>
     </div>
     <slot v-else></slot>
-    <span v-if="helpText != ''" class="help-block">{{helpText}}</span>
+    <yg-input-help v-if="controlClass == '' || $slots.help && !helpInline" :inline="helpInline">
+      <slot name="help"></slot>
+    </yg-input-help>
   </div>
 </template>
 <script>
-import validators from "../../utils/validators.js";
-
+import validators from "../../utils/validators";
+import YgInputHelp from "../input-help";
 export default {
   name: "YgFormGroup",
+  components: {
+    YgInputHelp
+  },
   props: {
     size: {
       type: String,
-      default: 'md',
-      validator: validators.oneOf(['xs','sm','md','lg','xlg'])
+      default: "md",
+      validator: validators.oneOf(["xs", "sm", "md", "lg", "xlg"])
     },
     label: String,
     labelWidth: {
@@ -26,11 +34,19 @@ export default {
     controlWidth: {
       type: String
     },
-    helpText: String
+    helpInline: {
+      type: Boolean,
+      default: false
+    },
+    helpAlign: {
+      type: Boolean,
+      default: "",
+      validator: validators.oneOf(["left", "center", "right"])
+    }
   },
   computed: {
     groupClass() {
-      return 'form-group form-group' + thisl.size;
+      return "form-group form-group" + thisl.size;
     },
     labelClass() {
       if (this.labelWidth) {
