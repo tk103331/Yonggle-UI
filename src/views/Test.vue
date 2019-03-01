@@ -166,7 +166,9 @@
         </yg-form-group>
         <yg-form-group label="Password" label-width="md-2" control-width="md-6" help-inline>
           <yg-input native-type="password" placeholder="Password"></yg-input>
-          <span slot="help" class="label label-block label-primary text-left">包含数据、字母、符号</span>
+          <template slot="help">
+            <span class="label label-block label-primary text-left">包含数据、字母、符号</span>
+          </template>
         </yg-form-group>
       </yg-form>
     </yg-row>

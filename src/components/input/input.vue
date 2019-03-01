@@ -1,6 +1,6 @@
 <template>
   <input
-    class="form-control"
+    :class="{'form-control':true,'input-rounded':rounded}"
     :style="inputStyle"
     :placeholder="placeholder"
     :type="nativeType"
@@ -27,6 +27,10 @@ export default {
       default: false
     },
     readonly: {
+      type: Boolean,
+      default: false
+    },
+    rounded: {
       type: Boolean,
       default: false
     }

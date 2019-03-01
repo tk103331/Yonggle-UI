@@ -3,12 +3,12 @@
     <label :class="labelClass">{{label}}</label>
     <div v-if="controlClass != ''" :class="controlClass">
       <slot></slot>
-      <yg-input-help v-if="$slots.help && helpInline" inline>
+      <yg-input-help v-if="$slots.help && !helpInline">
         <slot name="help"></slot>
       </yg-input-help>
     </div>
     <slot v-else></slot>
-    <yg-input-help v-if="controlClass == '' || $slots.help && !helpInline" :inline="helpInline">
+    <yg-input-help v-if="$slots.help && (controlClass == '' || helpInline)" :inline="helpInline">
       <slot name="help"></slot>
     </yg-input-help>
   </div>
@@ -39,8 +39,8 @@ export default {
       default: false
     },
     helpAlign: {
-      type: Boolean,
-      default: "",
+      type: String,
+      default: "left",
       validator: validators.oneOf(["left", "center", "right"])
     }
   },

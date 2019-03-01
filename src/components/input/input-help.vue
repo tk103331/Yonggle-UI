@@ -11,7 +11,7 @@ export default {
   props: {
     align: {
       type: String,
-      default: "",
+      default: "left",
       validator: validators.oneOf(["left", "center", "right"])
     },
     inline: {
