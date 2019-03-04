@@ -86,13 +86,19 @@ export default {
 </script>
 
 <style>
-.input-group-addon .checkbox,
-.radio {
+.input-group-addon .checkbox {
   margin-top: 0px;
   margin-bottom: 0px;
 }
-.input-group-addon .radio label,
-.checkbox label {
+.input-group-addon .radio {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.input-group-addon .radio label {
+  padding-left: 18px;
+  min-height: 18px;
+}
+.input-group-addon .checkbox label {
   padding-left: 18px;
   min-height: 18px;
 }
