@@ -215,6 +215,39 @@
       </yg-col>
     </yg-row>
     <yg-row>
+      <h5>输入框组</h5>
+    </yg-row>
+    <yg-row>
+      <yg-col :md="4">
+        <yg-input-group>
+          <span slot="prepend">http://wwww.example.com/</span>
+        </yg-input-group>
+        <yg-input-group>
+          <span slot="append">@.example.com</span>
+        </yg-input-group>
+        <yg-input-group>
+          <span slot="prepend">$</span>
+          <span slot="append">.00</span>
+        </yg-input-group>
+        <yg-input-group>
+          <i slot="prepend" class="fa fa-user"></i>
+        </yg-input-group>
+
+        <yg-input-group>
+          <yg-checkbox slot="prepend"></yg-checkbox>
+          <yg-checkbox slot="append" native></yg-checkbox>
+        </yg-input-group>
+
+        <yg-input-group>
+          <yg-radio slot="prepend"></yg-radio>
+          <yg-radio slot="append" native></yg-radio>
+        </yg-input-group>
+        <yg-input-group>
+          <yg-button slot="append-btn">Click</yg-button>
+        </yg-input-group>
+      </yg-col>
+    </yg-row>
+    <yg-row>
       <h5>复选框</h5>
     </yg-row>
     <yg-row>
@@ -432,6 +465,7 @@ import YgImage from "@/components/image";
 import YgIcon from "@/components/icon";
 import YgText from "@/components/text";
 import YgInput from "@/components/input";
+import YgInputGroup from "@/components/input-group";
 import YgInputHelp from "@/components/input-help";
 import YgStatic from "@/components/static";
 import YgCheckbox from "@/components/checkbox";
@@ -470,6 +504,7 @@ export default {
     YgIcon,
     YgText,
     YgInput,
+    YgInputGroup,
     YgInputHelp,
     YgStatic,
     YgCheckbox,
