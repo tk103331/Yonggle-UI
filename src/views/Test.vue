@@ -449,6 +449,36 @@
       <yg-text type="span" bg-color="#ff00ff">#ff00ff</yg-text>
       <yg-text type="span" bg-color="#c26464">#c26464</yg-text>
     </yg-row>
+
+    <yg-row>
+      <h3>组件</h3>
+    </yg-row>
+    <yg-row>
+      <h5>下拉菜单</h5>
+    </yg-row>
+    <yg-row>
+      <yg-dropdown @command="dropdownItem = $event">
+        <yg-button>Dropdown</yg-button>
+        <yg-dropdown-menu slot="dropdown">
+          <yg-dropdown-item type="header">Group1</yg-dropdown-item>
+          <yg-dropdown-item :command="'Item 1'">
+            <i class="fa fa-user"></i>Item 1
+          </yg-dropdown-item>
+          <yg-dropdown-item :command="'Item 2'">
+            <i class="fa fa-bell"></i>Item 2
+          </yg-dropdown-item>
+          <yg-dropdown-item type="header">Group1</yg-dropdown-item>
+          <yg-dropdown-item :command="'Item 3'">
+            <i class="fa fa-book"></i>Item 3
+          </yg-dropdown-item>
+          <yg-dropdown-item type="separator"></yg-dropdown-item>
+          <yg-dropdown-item :command="'Item 4'">
+            <i class="fa fa-bug"></i>Item 4
+          </yg-dropdown-item>
+        </yg-dropdown-menu>
+      </yg-dropdown>
+      {{dropdownItem}} clicked!
+    </yg-row>
   </yg-container>
 </template>
 
@@ -472,6 +502,9 @@ import YgCheckbox from "@/components/checkbox";
 import YgCheckboxGroup from "@/components/checkbox-group";
 import YgRadio from "@/components/radio";
 import YgRadioGroup from "@/components/radio-group";
+import YgDropdown from "@/components/dropdown";
+import YgDropdownMenu from "@/components/dropdown-menu";
+import YgDropdownItem from "@/components/dropdown-item";
 
 export default {
   data() {
@@ -488,7 +521,8 @@ export default {
       checkboxValue: false,
       checkboxGroupValue: [],
       radioValue: false,
-      radioGroupValue: "苹果"
+      radioGroupValue: "苹果",
+      dropdownItem: ""
     };
   },
   components: {
@@ -510,7 +544,10 @@ export default {
     YgCheckbox,
     YgCheckboxGroup,
     YgRadio,
-    YgRadioGroup
+    YgRadioGroup,
+    YgDropdown,
+    YgDropdownMenu,
+    YgDropdownItem
   }
 };
 </script>
